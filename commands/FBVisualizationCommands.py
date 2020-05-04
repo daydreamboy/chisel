@@ -145,7 +145,7 @@ def _visualize(target):
   target = fb.evaluateInputExpression(target)
 
   if fb.evaluateBooleanExpression('(unsigned long)CFGetTypeID((CFTypeRef)' + target + ') == (unsigned long)CGImageGetTypeID()'):
-    _showImage('(id)[UIImage imageWithCGImage:' + target + ']')
+    _showImage('(id)[UIImage imageWithCGImage:(CGImageRef)' + target + ']')
   else:
     if objectHelpers.isKindOfClass(target, 'UIImage'):
       _showImage(target)
